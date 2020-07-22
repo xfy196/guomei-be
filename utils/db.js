@@ -25,6 +25,10 @@ const User = mongoose.model("user", {
     created : {
         type: Date,
         required : true
+    },
+    updated : {
+        type : Date,
+        required : true
     }
 });
 

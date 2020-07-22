@@ -16,8 +16,16 @@ const findList = async () => {
     return result;
 }
 
+const update = async (user) => {
+    return await User.update(user)
+}
+const deleteById = async (id) => {
+    return await User.findByIdAndDelete({_id: id});
+}
 module.exports = {
     signup,
     findUserByUsername,
-    findList
+    findList,
+    update,
+    deleteById
 }
