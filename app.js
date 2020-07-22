@@ -15,7 +15,10 @@ const userRouter = require("./router/userRouter");
 router.use("/user", userRouter.routes());
 
 koa.use(async (ctx, next) => {
-    ctx.set("Content-Type", "application/json:charset=utf8")
+    // ctx.set("Content-Type", "application/json:charset=utf8")
+    ctx.res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8'
+      })
     await next();
 })
 
