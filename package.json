@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "apidoc" : "apidoc -i controller/ -o apidoc/ && cd apidoc/ && now"
   },
   "author": "",
   "license": "ISC",

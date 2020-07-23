@@ -4,7 +4,7 @@
 const {verify} = require("../utils/token.js"); 
 module.exports = async (ctx, next) => {
     // 我们需要拿到请求头中的x-access-token
-    let token = ctx.req.headers["x-access-token"];
+    let token = ctx.req.headers["X-Access-Token"];
     let result = await verify(token)
     // 如果有结果验证成功
     if(result){

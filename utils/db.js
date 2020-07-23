@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.SchemaTypes
 mongoose.connect("mongodb://localhost:27017/guomei", {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -12,7 +13,6 @@ const User = mongoose.model("user", {
     },
     email : {
         type : String,
-        required : true
     },
     password : {
         type : String,
@@ -31,7 +31,39 @@ const User = mongoose.model("user", {
         required : true
     }
 });
+const Product = mongoose.model("product",{
+    cid : {
+        type : ObjectId,
+    },
+    productImgURL : {
+        type : String,
+        required : true
+    },
+    shopId : {
+        type : String,
+        required : true
+    },
+    shopName : {
+        type : String,
+        required : true
+    },
+    shopImgUrl: {
+        type : String,
+    },
+    shopLogoUrl: {
+        type : String,
+        required : true
+    },
+    price : {
+        type : String,
+        required : true
+    },
+    markingPrice : {
+        type : String,
+    }
+})
 
 module.exports = {
-    User
+    User,
+    Product
 }

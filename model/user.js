@@ -2,7 +2,6 @@ const { User } = require("../utils/db");
 const { use } = require("../router/userRouter");
 
 const signup = async (data) => {
-    console.log(data);
     let result = await new User(data).save();
     return result;
 }
@@ -17,15 +16,20 @@ const findList = async () => {
 }
 
 const update = async (user) => {
-    return await User.update(user)
+    let result = await User.updateOne({_id : user._id}, user);
+    return result;
 }
 const deleteById = async (id) => {
     return await User.findByIdAndDelete({_id: id});
+}
+const deleteByPhone = async (phone) => {
+    return await User.findOneAndDelete({phone})
 }
 module.exports = {
     signup,
     findUserByUsername,
     findList,
     update,
-    deleteById
+    deleteById,
+    deleteByPhone
 }
